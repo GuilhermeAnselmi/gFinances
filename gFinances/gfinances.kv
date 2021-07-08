@@ -3,6 +3,8 @@
         name: 'menu'
     Finances:
         name: 'finances'
+    Receivement:
+        name: 'receivement'
 <Menu>:
     BoxLayout:
         orientation: 'vertical'
@@ -24,24 +26,72 @@
                     on_release: app.root.current = 'menu'
                 ActionButton:
                     text: 'Menu'
+                    on_release: app.root.current = 'menu'
         BoxLayout:
             orientation: 'vertical'
             padding: '50sp', '150sp', '50sp', '150sp'
             spacing: '50sp'
             Label:
-                text: '1.000,00'
+                text: '0'
             BoxLayout:
                 Label:
-                    text: '1.500,00'
+                    text: '0'
                 Label:
-                    text: '500,00'
+                    text: '0'
             BoxLayout:
                 spacing: '50sp'
                 Buttons:
                     text: 'Receivement'
+                    on_release: app.root.current = 'receivement'
                 Buttons:
                     text: 'Expenses'
             BoxLayout:
                 padding: '10sp', '2sp', '10sp', '2sp'
                 Buttons:
                     text: 'Refactor Base Value'
+<Receivement>:
+    BoxLayout:
+        orientation: 'vertical'
+        ActionBar:
+            ActionView:
+                ActionPrevious:
+                    text: 'Receivement'
+                    on_release: app.root.current = 'finances'
+                ActionButton:
+                    text: 'Menu'
+                    on_release: app.root.current = 'menu'
+        ScrollView:
+            BoxLayout:
+                id: scroll
+                orientation: 'vertical'
+                padding: '50sp', '100sp', '50sp', '100sp'
+                size_hint_y: '1sp'
+                height: self.minimum_height
+                BoxLayout:
+                    orientation: 'vertical'
+                    spacing: '20sp'
+                    Label:
+                        text: 'Type'
+                    TextInput:
+                        multiline: False
+                    Label:
+                        text: 'Transaction Date'
+                    DropDown:
+                        id: ddlDate
+                        on_parent: self.dismiss()
+                        on_select: btn.text = '{}'.format(args[1])
+                        Button:
+                            size_hint_y: None
+                            height: '30sp'
+                            on_release: dropdown.select('First Item')
+                        Label:
+                            text: 'Second'
+                            size_hint_y: None
+                            height: '30sp'
+                        Button:
+                            text: 'Third'
+                            size_hint_y: None
+                            height: '30sp'
+                            on_release: dropdown.select('Third')
+                    Buttons:
+                        text: 'Temp'
