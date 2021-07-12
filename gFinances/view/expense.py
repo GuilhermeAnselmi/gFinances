@@ -1,13 +1,13 @@
 from kivy.app import App
 from kivy.uix.screenmanager import Screen
-from kivy.uix.popup import Popup
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.animation import Animation
+from kivy.uix.popup import Popup
 
-class Receivement(Screen):
+class Expense(Screen):
     def __init__(self, **kwargs):
-        super(Receivement, self).__init__(**kwargs)
+        super(Expense, self).__init__(**kwargs)
 
     def Save(self, *args, **kwargs):
         box = BoxLayout(orientation='vertical', padding=10, spacing=10)
