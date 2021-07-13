@@ -1,0 +1,236 @@
+<Manager>:
+    Menu:
+        name: 'menu'
+    Finances:
+        name: 'finances'
+    Receivement:
+        name: 'receivement'
+    Expense:
+        name: 'expense'
+<Menu>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: '50dp', '200dp', '50dp', '200dp'
+        spacing: '100dp'
+        Buttons:
+            text: 'To Enter'
+            on_release: app.root.current = 'finances'
+        Buttons:
+            text: 'Quit'
+            on_release: app.stop()
+<Finances>:
+    BoxLayout:
+        orientation: 'vertical'
+        ActionBar:
+            ActionView:
+                ActionPrevious:
+                    title: 'Finances'
+                    on_release: app.root.current = 'menu'
+                ActionButton:
+                    text: 'Menu'
+                    on_release: app.root.current = 'menu'
+        BoxLayout:
+            orientation: 'vertical'
+            padding: '50dp', '150dp', '50dp', '150dp'
+            spacing: '50dp'
+            Label:
+                text: '0'
+            BoxLayout:
+                Label:
+                    text: '0'
+                Label:
+                    text: '0'
+            BoxLayout:
+                spacing: '50dp'
+                Buttons:
+                    text: 'Receivements'
+                    on_release: app.root.current = 'receivement'
+                Buttons:
+                    text: 'Expenses'
+                    on_release: app.root.current = 'expense'
+            BoxLayout:
+                padding: '10dp', '2dp', '10dp', '2dp'
+                Buttons:
+                    text: 'Refactor Base Value'
+<Receivement>:
+    BoxLayout:
+        orientation: 'vertical'
+        ActionBar:
+            ActionView:
+                ActionPrevious:
+                    title: 'Receivement'
+                    on_release: app.root.current = 'finances'
+                ActionButton:
+                    text: 'Menu'
+                    on_release: app.root.current = 'menu'
+        ScrollView:
+            BoxLayout:
+                id: scroll
+                orientation: 'vertical'
+                padding: '50dp', '50dp', '50dp', '50dp'
+                spacing: '30dp'
+                size_hint_y: None
+                height: self.minimum_height
+                BoxLayout:
+                    orientation: 'vertical'
+                    spacing: '30dp'
+                    size_hint_y: None
+                    height: '100dp'
+                    Label:
+                        text: 'Description'
+                    TextInput:
+                        id: txtDescription
+                        multiline: True
+                BoxLayout:
+                    orientation: 'vertical'
+                    spacing: '30dp'
+                    size_hint_y: None
+                    height: '100dp'
+                    Label:
+                        text: 'Value'
+                    TextInput:
+                        id: txtValue
+                        multiline: False
+                        input_filter: 'float'
+                BoxLayout:
+                    orientation: 'vertical'
+                    padding: '0dp', '50dp', '0dp', '50dp'
+                    spacing: '80dp'
+                    size_hint_y: None
+                    height: '200dp'
+                    Label:
+                        text: 'Transaction Date'
+                    BoxLayout:
+                        spacing: '20dp'
+                        BoxLayout:
+                            orientation: 'vertical'
+                            size_hint_y: None
+                            height: '70dp'
+                            Label:
+                                text: 'Day'
+                            TextInput:
+                                id: txtDay
+                                multiline: False
+                                input_filter: 'int'
+                        BoxLayout:
+                            orientation: 'vertical'
+                            size_hint_y: None
+                            height: '70dp'
+                            Label:
+                                text: 'Month'
+                            TextInput:
+                                id: txtMonth
+                                multiline: False
+                                input_filter: 'int'
+                        BoxLayout:
+                            orientation: 'vertical'
+                            size_hint_y: None
+                            height: '70dp'
+                            Label:
+                                text: 'Year'
+                            TextInput:
+                                id: txtYear
+                                multiline: False
+                                input_filter: 'int'
+                BoxLayout:
+                    orientation: 'vertical'
+                    spacing: '30dp'
+                    size_hint_y: None
+                    height: '150dp'
+                    Buttons:
+                        text: 'Save'
+                        on_release: root.Save()
+                    Buttons:
+                        text: 'Done'
+                        on_release: root.Return()
+<Expense>:
+    BoxLayout:
+        orientation: 'vertical'
+        ActionBar:
+            ActionView:
+                ActionPrevious:
+                    title: 'Expense'
+                    on_release: app.root.current = 'finances'
+                ActionButton:
+                    text: 'Menu'
+                    on_release: app.root.current = 'menu'
+        ScrollView:
+            BoxLayout:
+                id: scroll
+                orientation: 'vertical'
+                padding: '50dp', '50dp', '50dp', '50dp'
+                spacing: '30dp'
+                size_hint_y: None
+                height: self.minimum_height
+                BoxLayout:
+                    orientation: 'vertical'
+                    spacing: '30dp'
+                    size_hint_y: None
+                    height: '100dp'
+                    Label:
+                        text: 'Description'
+                    TextInput:
+                        id: txtDescription
+                        multiline: True
+                BoxLayout:
+                    orientation: 'vertical'
+                    spacing: '30dp'
+                    size_hint_y: None
+                    height: '100dp'
+                    Label:
+                        text: 'Value'
+                    TextInput:
+                        id: txtValue
+                        multiline: False
+                        input_filter: 'float'
+                BoxLayout:
+                    orientation: 'vertical'
+                    padding: '0dp', '50dp', '0dp', '50dp'
+                    spacing: '80dp'
+                    size_hint_y: None
+                    height: '200dp'
+                    Label:
+                        text: 'Transaction Date'
+                    BoxLayout:
+                        spacing: '20dp'
+                        BoxLayout:
+                            orientation: 'vertical'
+                            size_hint_y: None
+                            height: '70dp'
+                            Label:
+                                text: 'Day'
+                            TextInput:
+                                id: txtDay
+                                multiline: False
+                                input_filter: 'int'
+                        BoxLayout:
+                            orientation: 'vertical'
+                            size_hint_y: None
+                            height: '70dp'
+                            Label:
+                                text: 'Month'
+                            TextInput:
+                                id: txtMonth
+                                multiline: False
+                                input_filter: 'int'
+                        BoxLayout:
+                            orientation: 'vertical'
+                            size_hint_y: None
+                            height: '70dp'
+                            Label:
+                                text: 'Year'
+                            TextInput:
+                                id: txtYear
+                                multiline: False
+                                input_filter: 'int'
+                BoxLayout:
+                    orientation: 'vertical'
+                    spacing: '30dp'
+                    size_hint_y: None
+                    height: '150dp'
+                    Buttons:
+                        text: 'Save'
+                        on_release: root.Save()
+                    Buttons:
+                        text: 'Done'
+                        on_release: root.Return()
