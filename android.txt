@@ -1,3 +1,0 @@
-title=gFinances
-author=Guilherme
-orientation=portrait
