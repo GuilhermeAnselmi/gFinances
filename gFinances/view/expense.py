@@ -5,6 +5,8 @@ from kivy.uix.button import Button
 from kivy.animation import Animation
 from kivy.uix.popup import Popup
 
+from control.transaction import Transaction
+
 class Expense(Screen):
     def __init__(self, **kwargs):
         super(Expense, self).__init__(**kwargs)
@@ -31,8 +33,27 @@ class Expense(Screen):
         if description != None and value != None and day != None and month != None and year != None:
             if float(value) >= 0.0:
                 if (int(day) > 0 and int(day) <= 31) and (int(month) > 0 and int(month) <= 12) and len(year) <= 4:
+                    if len(day) == 1:
+                        day = "0" + day
+
+                    if len(month) == 1:
+                        month = "0" + month
+
                     date = day + "/" + month + "/" + year
-                    print(date)
+                    self.transaction = Transaction(description, value, date)
+
+                    verify = self.transaction.SendExpense()
+
+                    if verify:
+                        self.ids.txtDescription.text = ""
+                        self.ids.txtValue.text = ""
+                        self.ids.txtDay.text = ""
+                        self.ids.txtMonth.text = ""
+                        self.ids.txtYear.text = ""
+                        App.get_running_app().root.current = 'finances'
+                    else:
+                        pop.title = "Error sending data"
+                        pop.open()
                 else:
                     pop.title = "Invalid date formatting"
                     pop.open()
