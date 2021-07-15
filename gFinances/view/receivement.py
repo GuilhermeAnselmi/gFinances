@@ -62,7 +62,7 @@ class Receivement(Screen):
                 pop.open()
 
     def Return(self, *args, **kwargs):
-        box = BoxLayout(orientation='vertical', padding=10, spacing=10)
+        box = BoxLayout(orientation='vertical', padding=20, spacing=10)
         buttons = BoxLayout(spacing=10)
         self.pop = Popup(title='Do you want to return without saving?', content=box, size_hint=[None, None], size=['150dp', '100dp'])
 
@@ -74,7 +74,7 @@ class Receivement(Screen):
 
         box.add_widget(buttons)
 
-        anim = Animation(size=[650, 600], duration=0.4, t='out_back')
+        anim = Animation(size=[650, 500], duration=0.4, t='out_back')
         anim.start(self.pop)
 
         self.pop.open()
