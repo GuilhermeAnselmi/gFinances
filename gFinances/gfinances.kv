@@ -11,7 +11,18 @@
     BoxLayout:
         orientation: 'vertical'
         padding: '50dp', '200dp', '50dp', '200dp'
-        spacing: '150dp'
+        spacing: '40dp'
+        canvas:
+            Color:
+                rgba: 0.12, 0.12, 0.12, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Image:
+            source: 'image/roi.png'
+            size_hint_y: None
+            height: '100dp'
+            allow_stretch: True
         Buttons:
             text: 'To Enter'
             on_release: app.root.current = 'finances'
@@ -21,7 +32,19 @@
 <Finances>:
     BoxLayout:
         orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 0.12, 0.12, 0.12, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
         ActionBar:
+            canvas:
+                Color:
+                    rgba: 0.1, 0.1, 0.5, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
             ActionView:
                 ActionPrevious:
                     title: 'Finances'
@@ -32,7 +55,12 @@
         BoxLayout:
             orientation: 'vertical'
             padding: '50dp', '150dp', '50dp', '150dp'
-            spacing: '50dp'
+            spacing: '30dp'
+            Image:
+                source: 'image/roi.png'
+                size_hint_y: None
+                height: '100dp'
+                allow_stretch: True
             Label:
                 id: lblTotal
                 text: '0'
@@ -52,20 +80,20 @@
                     text: 'Expenses'
                     on_release: app.root.current = 'expense'
             BoxLayout:
-                padding: '10dp', '2dp', '10dp', '2dp'
+                spacing: '15dp'
                 Buttons:
-                    text: 'Refactor Base Value'
+                    text: 'All Received'
+                Buttons:
+                    text: 'All Expenses'
 <Receivement>:
     BoxLayout:
         orientation: 'vertical'
-        ActionBar:
-            ActionView:
-                ActionPrevious:
-                    title: 'Receivement'
-                    on_release: app.root.current = 'finances'
-                ActionButton:
-                    text: 'Menu'
-                    on_release: app.root.current = 'menu'
+        canvas:
+            Color:
+                rgba: 0.12, 0.12, 0.12, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
         ScrollView:
             BoxLayout:
                 id: scroll
@@ -149,14 +177,12 @@
 <Expense>:
     BoxLayout:
         orientation: 'vertical'
-        ActionBar:
-            ActionView:
-                ActionPrevious:
-                    title: 'Expense'
-                    on_release: app.root.current = 'finances'
-                ActionButton:
-                    text: 'Menu'
-                    on_release: app.root.current = 'menu'
+        canvas:
+            Color:
+                rgba: 0.12, 0.12, 0.12, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
         ScrollView:
             BoxLayout:
                 id: scroll

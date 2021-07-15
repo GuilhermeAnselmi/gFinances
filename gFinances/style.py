@@ -4,8 +4,8 @@ from kivy.uix.label import Label
 from kivy.properties import ListProperty
 
 class Buttons(ButtonBehavior, Label):
-    colored = ListProperty([0.3, 0.3, 0.3, 1])
-    coloredClick = ListProperty([0.2, 0.2, 0.2, 1])
+    colored = ListProperty([0.1, 0.1, 1, 1])
+    coloredClick = ListProperty([0.1, 0.1, 0.5, 1])
 
     def __init__(self, **kwargs):
         super(Buttons, self).__init__(**kwargs)

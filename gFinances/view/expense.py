@@ -12,8 +12,8 @@ class Expense(Screen):
         super(Expense, self).__init__(**kwargs)
 
     def Save(self, *args, **kwargs):
-        box = BoxLayout(orientation='vertical', padding=10, spacing=10)
-        buttons = BoxLayout(spacing=10)
+        box = BoxLayout(orientation='vertical', padding=20, spacing=10)
+        buttons = BoxLayout(spacing=20)
         pop = Popup(content=box, size_hint=[None, None], size=['150dp', '100dp'])
 
         btnOk = Button(text='Ok', on_release=pop.dismiss)
@@ -21,7 +21,7 @@ class Expense(Screen):
         buttons.add_widget(btnOk)
         box.add_widget(buttons)
 
-        anim = Animation(size=[200, 150], duration=0.4, t='out_back')
+        anim = Animation(size=[650, 400], duration=0.4, t='out_back')
         anim.start(pop)
 
         description = self.ids.txtDescription.text
@@ -30,7 +30,7 @@ class Expense(Screen):
         month = self.ids.txtMonth.text
         year = self.ids.txtYear.text
 
-        if description != None and value != None and day != None and month != None and year != None:
+        if description != '' and value != '' and day != '' and month != '' and year != '':
             if float(value) >= 0.0:
                 if (int(day) > 0 and int(day) <= 31) and (int(month) > 0 and int(month) <= 12) and len(year) <= 4:
                     if len(day) == 1:
@@ -60,10 +60,13 @@ class Expense(Screen):
             else:
                 pop.title = "Cannot use negative value"
                 pop.open()
+        else:
+            pop.title = "Enter data to continue"
+            pop.open()
 
     def Return(self, *args, **kwargs):
         box = BoxLayout(orientation='vertical', padding=10, spacing=10)
-        buttons = BoxLayout(spacing=10)
+        buttons = BoxLayout(spacing=20)
         self.pop = Popup(title='Do you want to return without saving?', content=box, size_hint=[None, None], size=['150dp', '100dp'])
 
         btnConfirm = Button(text='Yes', on_release=self.Confirm)
@@ -74,7 +77,7 @@ class Expense(Screen):
 
         box.add_widget(buttons)
 
-        anim = Animation(size=[200, 150], duration=0.4, t='out_back')
+        anim = Animation(size=[650, 400], duration=0.4, t='out_back')
         anim.start(self.pop)
 
         self.pop.open()
