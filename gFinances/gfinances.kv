@@ -53,6 +53,7 @@
                     text: 'Menu'
                     on_release: app.root.current = 'menu'
         BoxLayout:
+            id: values
             orientation: 'vertical'
             padding: '50dp', '150dp', '50dp', '150dp'
             spacing: '30dp'
@@ -63,13 +64,16 @@
                 allow_stretch: True
             Label:
                 id: lblTotal
+                font_size: '40dp'
                 text: '0'
             BoxLayout:
                 Label:
                     id: lblReceivement
+                    font_size: '40dp'
                     text: '0'
                 Label:
                     id: lblExpense
+                    font_size: '40dp'
                     text: '0'
             BoxLayout:
                 spacing: '15dp'
@@ -99,9 +103,13 @@
                 id: scroll
                 orientation: 'vertical'
                 padding: '50dp', '50dp', '50dp', '50dp'
-                spacing: '30dp'
+                spacing: '50dp'
                 size_hint_y: None
                 height: self.minimum_height
+                Label:
+                    text: 'Receivement'
+                    font_size: '50dp'
+                    color: 0.1, 0.1, 0.8, 1
                 BoxLayout:
                     orientation: 'vertical'
                     spacing: '30dp'
@@ -188,9 +196,13 @@
                 id: scroll
                 orientation: 'vertical'
                 padding: '50dp', '50dp', '50dp', '50dp'
-                spacing: '30dp'
+                spacing: '50dp'
                 size_hint_y: None
                 height: self.minimum_height
+                Label:
+                    text: 'Expense'
+                    font_size: '50dp'
+                    color: 0.1, 0.1, 0.8, 1
                 BoxLayout:
                     orientation: 'vertical'
                     spacing: '30dp'
