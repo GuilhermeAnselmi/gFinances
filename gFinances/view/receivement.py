@@ -74,7 +74,7 @@ class Receivement(Screen):
 
         box.add_widget(buttons)
 
-        anim = Animation(size=[650, 500], duration=0.4, t='out_back')
+        anim = Animation(size=[650, 400], duration=0.4, t='out_back')
         anim.start(self.pop)
 
         self.pop.open()
